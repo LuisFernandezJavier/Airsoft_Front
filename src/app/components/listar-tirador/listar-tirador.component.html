@@ -1,0 +1,40 @@
+<div class="container mt-5">
+  <div class="row"></div>
+  <div class="col-lg-8 offset-lg-2">
+    <div class="card">
+      <div class="card-body text-center">
+        <span class="titulo "><strong>LISTADO DE TIRADORES</strong></span>
+        <button class="btn btn-success float-end mt-4" routerLink="/crear-tirador">NUEVO</button>
+        <table *ngIf="objTiradores.length > 0 " class="table table-dark table-hover mt-4 ">
+          <thead class="">
+            <tr>
+              <th scope="col">COD</th>
+              <th scope="col">COD EQUIPO</th>
+              <th scope="col">NOMBRE</th>
+              <th scope="col">ROL</th>
+              <th scope="col">BAJAS</th>
+              <th scope="col">MUERTES</th>
+              <th scope="col">FECHA DE INSCRIPCION</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let tirador of objTiradores">
+              <th scope="row">{{ tirador.codArma }}</th>
+              <td>{{ tirador.codEquipo }}</td>
+              <td>{{ tirador.nombre }}</td>
+              <td>{{ tirador.rolTirador}}</td>
+              <td>{{ tirador.bajas }}</td>
+              <td>{{ tirador.muertes }}</td>
+              <td>{{ tirador.fechaInscripcion }}</td>
+              <td>
+                <i [routerLink]="['/editar-tirador' , tirador.codArma]" class="fas fa-pen-square text-primary float-end"></i>
+                <i (click)="eliminoTirador(tirador.codArma)" class="fas fa-trash-alt text-danger float-end"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
