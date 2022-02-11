@@ -14,7 +14,7 @@ const routes: Routes = [
 
   { path: 'listar-accesorio', component: ListarAccesorioComponent },
   { path: 'crear-accesorio', component: CrearAccesorioComponent },
-  { path: 'editar-accesorio/:_codArma', component: CrearAccesorioComponent },
+  { path: 'editar-accesorio/:_idAccesorio', component: CrearAccesorioComponent },
 
   { path: 'listar-arma', component: ListarArmaComponent },
   { path: 'crear-arma', component: CrearArmaComponent },

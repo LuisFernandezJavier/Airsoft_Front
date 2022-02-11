@@ -15,10 +15,14 @@
               <th scope="col">BAJAS</th>
               <th scope="col">MUERTES</th>
               <th scope="col">FECHA DE INSCRIPCION</th>
+              <th scope="col" *ngIf="showC">REVIVIDOS</th>
+              <th scope="col" *ngIf="showB">EXPLOSIVOS DETONADOS</th>
               <th scope="col"></th>
             </tr>
           </thead>
-          <tbody>
+
+          <tbody *ngIf="show">
+
             <tr *ngFor="let tirador of objTiradores">
               <th scope="row">{{ tirador.codArma }}</th>
               <td>{{ tirador.codEquipo }}</td>
@@ -28,12 +32,57 @@
               <td>{{ tirador.muertes }}</td>
               <td>{{ tirador.fechaInscripcion }}</td>
               <td>
-                <i [routerLink]="['/editar-tirador' , tirador.codArma]" class="fas fa-pen-square text-primary float-end"></i>
+                <i [routerLink]="['/editar-tirador' , tirador.codArma]"
+                  class="fas fa-pen-square text-primary float-end"></i>
+                <i (click)="eliminoTirador(tirador.codArma)" class="fas fa-trash-alt text-danger float-end"></i>
+              </td>
+            </tr>
+          </tbody>
+
+          <tbody *ngIf="showC">
+
+            <tr *ngFor="let tirador of objCuradores">
+              <th scope="row">{{ tirador.codArma }}</th>
+              <td>{{ tirador.codEquipo }}</td>
+              <td>{{ tirador.nombre }}</td>
+              <td>{{ tirador.rolTirador}}</td>
+              <td>{{ tirador.bajas }}</td>
+              <td>{{ tirador.muertes }}</td>
+              <td>{{ tirador.fechaInscripcion }}</td>
+              <td>{{ tirador.revivido}}</td>
+              <td>
+                <i [routerLink]="['/editar-tirador' , tirador.codArma]"
+                  class="fas fa-pen-square text-primary float-end"></i>
+                <i (click)="eliminoTirador(tirador.codArma)" class="fas fa-trash-alt text-danger float-end"></i>
+              </td>
+            </tr>
+          </tbody>
+
+          <tbody *ngIf="showB">
+
+            <tr *ngFor="let tirador of objBombarderos">
+              <th scope="row">{{ tirador.codArma }}</th>
+              <td>{{ tirador.codEquipo }}</td>
+              <td>{{ tirador.nombre }}</td>
+              <td>{{ tirador.rolTirador}}</td>
+              <td>{{ tirador.bajas }}</td>
+              <td>{{ tirador.muertes }}</td>
+              <td>{{ tirador.fechaInscripcion }}</td>
+              <td>{{ tirador.explosivoDetonado}}</td>
+              <td>
+                <i [routerLink]="['/editar-tirador' , tirador.codArma]"
+                  class="fas fa-pen-square text-primary float-end"></i>
                 <i (click)="eliminoTirador(tirador.codArma)" class="fas fa-trash-alt text-danger float-end"></i>
               </td>
             </tr>
           </tbody>
         </table>
+        <button class="btn btn-success float-end mt-4"
+          (click)="showB=false;show = true ; showC = false">TIRADOR</button>
+        <button class="btn btn-success float-end mt-4"
+          (click)="showB=false;showC = true ; show = false">CURADOR</button>
+        <button class="btn btn-success float-end mt-4"
+          (click)="showB=true ; showC = false ; show = false">BOMBARDERO</button>
       </div>
     </div>
   </div>

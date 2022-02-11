@@ -16,13 +16,16 @@ export class AccesorioService {
     eliminarAccesorio(codArma: string): Observable<any> {
         return this.http.delete(this.url + 'borroAccesorio/' + codArma, { responseType: 'text' })
     }
-    creoAccesorio(creoaccesorio: Accesorio): Observable<any> {
+    creoAccesorio(creoaccesorio: any): Observable<any> {
         return this.http.post(this.url + 'nuevoAccesorio', creoaccesorio, { responseType: 'text' })
     }
-    obtengoAccesorio(codArma: string | null): Observable<any> {
-        return this.http.get(this.url+'obtengoAccesorio/' + codArma)
+    obtengoAccesorio(idAccesorio: string | null ): Observable<any> {
+        return this.http.get(this.url+'obtengoAccesorio/' + idAccesorio , { responseType: 'text' } )
     }
-    editoAccesorio(codArma: string, accesorioBd: Accesorio): Observable<any> {
-        return this.http.put(this.url + 'modificoAccesorio/' + codArma, accesorioBd, { responseType: 'text' })
+    obtengoAccesorio2(idAccesorio: string | null ): Observable<any> {
+        return this.http.get(this.url+'obtengoAccesorio/' + idAccesorio )
+    }
+    editoAccesorio(idAccesorio: string, accesorioBd: any): Observable<any> {
+        return this.http.put(this.url + 'modificoAccesorio/' + idAccesorio, accesorioBd, { responseType: 'text' })
     }
 }

@@ -5,3 +5,10 @@
 .pruebo{
     background-color: black;
 }
+.Center {
+    width:80%;
+    height:auto;
+    position: fixed;
+    top: 20%;
+    left: 6%;
+}

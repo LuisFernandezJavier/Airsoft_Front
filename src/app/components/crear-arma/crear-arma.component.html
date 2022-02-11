@@ -14,28 +14,36 @@
                     </div>
 
                     <div class="mb-3">
-                        <input type="text" class="form-control form-control-lg  text-color" formControlName="_nombreArma"
-                            placeholder="NOMBRE">
+                        <input type="text" class="form-control form-control-lg  text-color"
+                            formControlName="_nombreArma" placeholder="NOMBRE">
                     </div>
                     <div class="mb-3">
-                        <input type="date" class="form-control form-control-lg  text-color"formControlName="_fechaProduccion" 
-                            placeholder="FECHA PRODUCCION">
+                        <input type="date" class="form-control form-control-lg  text-color"
+                            formControlName="_fechaProduccion" placeholder="FECHA PRODUCCION">
                     </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control form-control-lg  text-color" formControlName="_precioBase"
-                            placeholder="PRECIO BASE">
+                        <input type="text" class="form-control form-control-lg  text-color"
+                            formControlName="_precioBase" placeholder="PRECIO BASE">
+                    </div>
+                    <div class="mb-3 form-check form-switch">
+
+                        <input class="form-check-input" type="checkbox" role="switch"
+                            formControlName="_disparoAutomatico" value="true">
+                        <p class="text2 text-color">DISPARO AUTOMATICO</p>
+
+
+                        <output type="text" formControlName="_disparoAutomatico"
+                            value="formControlName._disparoAutomatico"
+                            onkeyup="formControlName._disparoAutomatico"></output>
+                    </div>
+
+                    <div class="mb-3">
+                        <input type="text" class="form-control form-control-lg  text-color"
+                            formControlName="_categoriaArma" placeholder="CATEGORIA">
                     </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control form-control-lg  text-color" formControlName="_disparoAutomatico"
-                            placeholder="DISPARO AUTOMATICO">
-                    </div>
-                    <div class="mb-3">
-                        <input type="text" class="form-control form-control-lg  text-color" formControlName="_categoriaArma"
-                            placeholder="CATEGORIA">
-                    </div>
-                    <div class="mb-3">
-                        <input type="text" class="form-control form-control-lg  text-color" formControlName="_animaRayada"
-                            placeholder="ANIMA">
+                        <input type="text" class="form-control form-control-lg  text-color"
+                            formControlName="_animaRayada" placeholder="ANIMA">
                     </div>
                     <div class="mb-3">
                         <input type="text" class="form-control form-control-lg  text-color" formControlName="_calibre"

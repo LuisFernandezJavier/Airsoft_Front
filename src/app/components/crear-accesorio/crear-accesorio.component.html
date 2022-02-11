@@ -3,13 +3,30 @@
         <div class="col-lg-6 offset-lg-3">
             <div class="card-body text-center">
                 <h1><span class="titulo titulo2"><strong> {{titulo | uppercase}} </strong></span></h1>
-                <form class="mt-3 form-control-dark" [formGroup]="accesorioForms" (ngSubmit)="agregarVehiculo()">
+
+                <!-- FORMULARIO DE ACCESROIO TIPO Mirilla  -->
+                <div>
+                    <button class="btn btn-success float-end mt-4"
+                        (click)="showX=false;showM = true ; showC = false">MIRILLA</button>
+                    <button class="btn btn-success float-end mt-4"
+                        (click)="showM=false;showC = true ; showX = false">CARGADOR</button>
+                    <button class="btn btn-success float-end mt-4"
+                        (click)="showX=true ; showC = false ; showM = false">CAÑON</button>
+                </div>
+
+                <form class="mt-3 form-control-dark" [formGroup]="accesorioForms" (ngSubmit)="agregarAccesorio()">
+                    
                     <div class="mb-3 ">
                         <input type="text" class="form-control form-control-lg focus text-color"
                             formControlName="_codArma" placeholder="COD ARMA">
+                    </div>
+
+                    <div class="mb-3 ">
+                        <input type="text" class="form-control form-control-lg focus text-color"
+                            formControlName="_idAccesorio" placeholder="COD ACCESORIO">
                         <div class="text-danger"
-                            *ngIf="accesorioForms.get('_codArma')?.hasError('required') && accesorioForms.get('_codArma')?.touched">
-                            <span>El codigo-arma del tirador es <strong>obligatorio</strong></span>
+                            *ngIf="accesorioForms.get('_idAccesorio')?.hasError('required') && accesorioForms.get('_idAccesorio')?.touched">
+                            <span>El codigo accesorio del accesorio es <strong>obligatorio</strong></span>
                         </div>
                     </div>
 
@@ -18,19 +35,38 @@
                             placeholder="NOMBRE">
                     </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control form-control-lg  text-color"formControlName="_tipoAccesorio" 
-                            placeholder="TIPO ACCESORIO">
+                        <input type="text" class="form-control form-control-lg  text-color"
+                            formControlName="_tipoAccesorio" placeholder="TIPO ACCESORIO">
                     </div>
                     <div class="mb-3">
                         <input type="text" class="form-control form-control-lg  text-color" formControlName="_precio"
                             placeholder="PRECIO">
                     </div>
+                    <div class="mb-3" *ngIf="showM">
+                        <input type="number" class="form-control form-control-lg  text-color" formControlName="_zoom"
+                            placeholder="ZOOM MIRILLA">
+                    </div>
+                    <div class="mb-3" *ngIf="showM">
+                        <input type="text" class="form-control form-control-lg  text-color"
+                            formControlName="_tipoMirilla" placeholder="TIPO MIRILLA">
+                    </div>
+                    <div class="mb-3" *ngIf="showX">
+                        <input type="number" class="form-control form-control-lg  text-color"
+                            formControlName="_longitudCanon" placeholder="LONGITUD DEL CAÑON">
+                    </div>
+                    <div class="mb-3" *ngIf="showC">
+                        <input type="number" class="form-control form-control-lg  text-color"
+                            formControlName="_numeroBalas" placeholder="NumeroBalas">
+                    </div>
                     <div class="mb-3">
-                        <button class="btn btn-secondary btn-lg float-start" routerLink="/listar-accesorio ">VOLVER</button>
+                        <button class="btn btn-secondary btn-lg float-start"
+                            routerLink="/listar-accesorio">VOLVER</button>
                         <button type="submit" [disabled]="accesorioForms.invalid"
                             class="btn btn-success btn-lg float-end">CREAR</button>
                     </div>
                 </form>
+
+                <!-- FORMULARIO DE ACCESROIO TIPO CARGADOR    -->
 
             </div>
         </div>

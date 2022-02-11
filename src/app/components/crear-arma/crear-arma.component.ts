@@ -24,7 +24,7 @@ export class CrearArmaComponent implements OnInit {
       _nombreArma: ['', Validators.required],
       _fechaProduccion: ['', Validators.required],
       _precioBase: ['', Validators.required],
-      _disparoAutomatico: ['', Validators.required],
+      _disparoAutomatico: [],
       _categoriaArma: ['', Validators.required],
       _animaRayada: ['', Validators.required],
       _calibre: ['', Validators.required],

@@ -4,30 +4,75 @@
       <div class="card">
         <div class="card-body text-center">
           <span class="titulo "><strong>LISTADO DE ACCESORIOS</strong></span>
-          <button class="btn btn-success float-end mt-4" routerLink="/crear-accesorio">NUEVO</button>
-          <table *ngIf="objAccesorios.length > 0 " class="table table-dark table-hover mt-4 ">
+          <button class="btn btn-success float-end mt-4" routerLink="/crear-accesorio" >NUEVO ACCESORIO</button>
+          
+          <table  class="table table-dark table-hover mt-4 ">
             <thead class="">
               <tr>
+                <th scope="col">COD</th>
                 <th scope="col">COD</th>
                 <th scope="col">NOMBRE</th>
                 <th scope="col">TIPO</th>
                 <th scope="col">PRECIO</th>
+                <th scope="col" *ngIf="showM">ZOOM</th>
+                <th scope="col" *ngIf="showM">TIPO MIRILLA</th>
+                <th scope="col" *ngIf="showX">LONGITUD CAÑON</th>
+                <th scope="col" *ngIf="showC">NUMERO DE BALAS</th>
                 <th scope="col"></th>
               </tr>
             </thead>
-            <tbody>
-              <tr *ngFor="let accesorio of objAccesorios">
+            <tbody *ngIf="showC">
+              <tr *ngFor="let accesorio of objCargador">
                 <th scope="row">{{ accesorio.codArma }}</th>
+                <td>{{ accesorio.idAccesorio }}</td>
                 <td>{{ accesorio.nombre }}</td>
                 <td>{{ accesorio.tipoAccesorio}}</td>
                 <td>{{ accesorio.precio }}</td>
+                <td>{{ accesorio.numeroBalas }}</td>
                 <td>
-                  <i [routerLink]="['/editar-accesorio' , accesorio.codArma]" class="fas fa-pen-square text-primary float-end"></i>
-                  <i (click)="eliminoAccesorio(accesorio.codArma)" class="fas fa-trash-alt text-danger float-end"></i>
+                  <i [routerLink]="['/editar-accesorio' , accesorio.idAccesorio]" class="fas fa-pen-square text-primary float-end"></i>
+                  <i (click)="eliminoAccesorio(accesorio.codArma) ; window()" class="fas fa-trash-alt text-danger float-end"></i>
+                </td>
+              </tr>
+            </tbody>
+
+            <tbody *ngIf="showX">
+              <tr *ngFor="let accesorio of objCanon">
+                <th scope="row">{{ accesorio.codArma }}</th>
+                <td>{{ accesorio.idAccesorio }}</td>
+                <td>{{ accesorio.nombre }}</td>
+                <td>{{ accesorio.tipoAccesorio}}</td>
+                <td>{{ accesorio.precio }}</td>
+                <td>{{ accesorio.longitudCanon }}</td>
+                <td>
+                  <i [routerLink]="['/editar-accesorio' , accesorio.idAccesorio]" class="fas fa-pen-square text-primary float-end"></i>
+                  <i (click)="eliminoAccesorio(accesorio.codArma); window()" class="fas fa-trash-alt text-danger float-end"></i>
+                </td>
+              </tr>
+            </tbody>
+
+            <tbody *ngIf="showM">
+              <tr *ngFor="let accesorio of objMirilla">
+                <th scope="row">{{ accesorio.codArma }}</th>
+                <td>{{ accesorio.idAccesorio }}</td>
+                <td>{{ accesorio.nombre }}</td>
+                <td>{{ accesorio.tipoAccesorio}}</td>
+                <td>{{ accesorio.precio }}</td>
+                <td>{{ accesorio.zoom }}</td>
+                <td>{{ accesorio.tipoMirilla }}</td>
+                <td>
+                  <i [routerLink]="['/editar-accesorio' , accesorio.idAccesorio]" class="fas fa-pen-square text-primary float-end"></i>
+                  <i (click)="eliminoAccesorio(accesorio.codArma); window()" class="fas fa-trash-alt text-danger float-end"></i>
                 </td>
               </tr>
             </tbody>
           </table>
+          <button class="btn btn-success float-end mt-4"
+          (click)="showX=false;showM = true ; showC = false">MIRILLA</button>
+        <button class="btn btn-success float-end mt-4"
+          (click)="showM=false;showC = true ; showX = false">CARGADOR</button>
+        <button class="btn btn-success float-end mt-4"
+          (click)="showX=true ; showC = false ; showM = false">CAÑON</button>
         </div>
       </div>
     </div>

@@ -16,13 +16,16 @@ export class TiradorService {
     eliminarTirador(codArma: string): Observable<any> {
         return this.http.delete(this.url + 'borroTirador/' + codArma, { responseType: 'text' })
     }
-    creoTirador(creoTirador: Tirador): Observable<any> {
+    creoTirador(creoTirador: any): Observable<any> {
         return this.http.post(this.url + 'nuevoTirador', creoTirador, { responseType: 'text' })
     }
     obtengoTirador(codArma: string | null): Observable<any> {
+        return this.http.get(this.url+'obtengoTirador/' + codArma ,{ responseType: 'text' } )
+    }
+    obtengoTirador2(codArma: string | null): Observable<any> {
         return this.http.get(this.url+'obtengoTirador/' + codArma)
     }
-    editoTirador(codArma: string, tiradorBd: Tirador): Observable<any> {
+    editoTirador(codArma: string, tiradorBd: any): Observable<any> {
         return this.http.put(this.url + 'modificoTirador/' + codArma, tiradorBd, { responseType: 'text' })
     }
 }

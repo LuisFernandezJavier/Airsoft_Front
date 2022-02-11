@@ -13,6 +13,9 @@ export class CrearTiradorComponent implements OnInit {
   tiradorForms: FormGroup;
   _codArma: any;
   titulo = 'Crear Vehiculo';
+
+  showC = false;
+  showB = false;
   constructor(private vb: FormBuilder,
     private router: Router,
     private toastr: ToastrService,
@@ -26,7 +29,9 @@ export class CrearTiradorComponent implements OnInit {
       _rolTirador: ['', Validators.required],
       _bajas: ['', Validators.required],
       _muertes: ['', Validators.required],
-      _fechaInscripcion: ['', Validators.required]
+      _fechaInscripcion: ['', Validators.required],
+      _revivido: [''],
+      _explosivoDetonado: ['']
 
     })
     this._codArma = this.aRouter.snapshot.paramMap.get('_codArma');
@@ -36,16 +41,44 @@ export class CrearTiradorComponent implements OnInit {
     this.editarTirador();
   }
   agregarVehiculo() {
+    let Creotirador: any
     console.log(this.tiradorForms);
-    const Creotirador: any = {
-      _codArma: this.tiradorForms.get('_codArma')?.value,
-      _codEquipo: this.tiradorForms.get('_codEquipo')?.value,
-      _nombre: this.tiradorForms.get('_nombre')?.value,
-      _rolTirador: this.tiradorForms.get('_rolTirador')?.value,
-      _bajas: this.tiradorForms.get('_bajas')?.value,
-      _muertes: this.tiradorForms.get('_muertes')?.value,
-      _fechaInscripcion: this.tiradorForms.get('_fechaInscripcion')?.value,
+    let comparo = this.tiradorForms.get('_rolTirador')?.value
+    if (comparo == "Curador") {
+      Creotirador = {
+        _codArma: this.tiradorForms.get('_codArma')?.value,
+        _codEquipo: this.tiradorForms.get('_codEquipo')?.value,
+        _nombre: this.tiradorForms.get('_nombre')?.value,
+        _rolTirador: this.tiradorForms.get('_rolTirador')?.value,
+        _bajas: this.tiradorForms.get('_bajas')?.value,
+        _muertes: this.tiradorForms.get('_muertes')?.value,
+        _fechaInscripcion: this.tiradorForms.get('_fechaInscripcion')?.value,
+        _revivido: this.tiradorForms.get('_revivido')?.value,
+      }
+    } else if (comparo = "Bombardero") {
+      Creotirador = {
+        _codArma: this.tiradorForms.get('_codArma')?.value,
+        _codEquipo: this.tiradorForms.get('_codEquipo')?.value,
+        _nombre: this.tiradorForms.get('_nombre')?.value,
+        _rolTirador: this.tiradorForms.get('_rolTirador')?.value,
+        _bajas: this.tiradorForms.get('_bajas')?.value,
+        _muertes: this.tiradorForms.get('_muertes')?.value,
+        _fechaInscripcion: this.tiradorForms.get('_fechaInscripcion')?.value,
+        _explosivoDetonado: this.tiradorForms.get('_explosivoDetonado')?.value,
+      }
+    } else {
+      Creotirador = {
+        _codArma: this.tiradorForms.get('_codArma')?.value,
+        _codEquipo: this.tiradorForms.get('_codEquipo')?.value,
+        _nombre: this.tiradorForms.get('_nombre')?.value,
+        _rolTirador: this.tiradorForms.get('_rolTirador')?.value,
+        _bajas: this.tiradorForms.get('_bajas')?.value,
+        _muertes: this.tiradorForms.get('_muertes')?.value,
+        _fechaInscripcion: this.tiradorForms.get('_fechaInscripcion')?.value,
+      }
     }
+
+
     if (this._codArma == null) {
       //creo un tirador nuevo
       console.log(Creotirador);
@@ -62,24 +95,53 @@ export class CrearTiradorComponent implements OnInit {
     }
   }
 
-  editarTirador(){
-    if(this._codArma !== null){
-      this.titulo="EDITAR TIRADOR";
-      this._tiradorService.obtengoTirador(this._codArma).subscribe(data=>{
-        console.log(data);
-        console.log(this._codArma)
+  editarTirador() {
+    if (this._codArma !== null) {
+      this.titulo = "EDITAR TIRADOR";
+    }
+
+    this._tiradorService.obtengoTirador2(this._codArma).subscribe(data => {
+      console.log("esto es data", data);
+
+      if (data[0]._rolTirador == "Tirador") {
         this.tiradorForms.patchValue({
-          _codArma: data[0]._codArma ,
+          _codArma: data[0]._codArma,
           _codEquipo: data[0]._codEquipo,
-          _nombre: data[0]._nombre ,
-          _rolTirador: data[0]._rolTirador ,
+          _nombre: data[0]._nombre,
+          _rolTirador: data[0]._rolTirador,
           _bajas: data[0]._bajas,
           _muertes: data[0]._muertes,
           _fechaInscripcion: data[0]._fechaInscripcion
         })
-        
-      })
-    }
+      } else if (data[0]._rolTirador == "Curador") {
+        this.showC = true;
+        this.tiradorForms.patchValue({
+          _codArma: data[0]._codArma,
+          _codEquipo: data[0]._codEquipo,
+          _nombre: data[0]._nombre,
+          _rolTirador: data[0]._rolTirador,
+          _bajas: data[0]._bajas,
+          _muertes: data[0]._muertes,
+          _fechaInscripcion: data[0]._fechaInscripcion,
+          _revivido: data[0]._revivido
+        })
+      } else if (data[0]._rolTirador == "Bombardero"){
+        this.showB = true;
+        this.tiradorForms.patchValue({
+          _codArma: data[0]._codArma,
+          _codEquipo: data[0]._codEquipo,
+          _nombre: data[0]._nombre,
+          _rolTirador: data[0]._rolTirador,
+          _bajas: data[0]._bajas,
+          _muertes: data[0]._muertes,
+          _fechaInscripcion: data[0]._fechaInscripcion,
+          _explosivoDetonado: data[0]._explosivoDetonado
+          
+        })
+      }
+
+    })
+
   }
 }
 

@@ -9,6 +9,7 @@
     color: rgb(252, 204, 46, 0.8);
     background-color: rgb(31, 29, 29);
 }
+
 input:focus{
     
     border-color: rgba(252, 204, 46, 0.8);
