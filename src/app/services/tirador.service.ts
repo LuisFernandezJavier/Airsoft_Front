@@ -28,4 +28,7 @@ export class TiradorService {
     editoTirador(codArma: string, tiradorBd: any): Observable<any> {
         return this.http.put(this.url + 'modificoTirador/' + codArma, tiradorBd, { responseType: 'text' })
     }
+    calculoKDA(codArma:string| null): Observable<any> {
+        return this.http.get(this.url + 'locura/' + codArma)
+    }
 }

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CrearEquipoComponent } from './crear-equipo.component';
+import { VeoTiradorComponent } from './veo-tirador.component';
 
-describe('CrearEquipoComponent', () => {
-  let component: CrearEquipoComponent;
-  let fixture: ComponentFixture<CrearEquipoComponent>;
+describe('VeoTiradorComponent', () => {
+  let component: VeoTiradorComponent;
+  let fixture: ComponentFixture<VeoTiradorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CrearEquipoComponent ]
+      declarations: [ VeoTiradorComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CrearEquipoComponent);
+    fixture = TestBed.createComponent(VeoTiradorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

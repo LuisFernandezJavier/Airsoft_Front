@@ -18,7 +18,12 @@ import { ListarAccesorioComponent } from './components/listar-accesorio/listar-a
 import { CrearArmaComponent } from './components/crear-arma/crear-arma.component';
 import { ListarArmaComponent } from './components/listar-arma/listar-arma.component';
 import { ListarEquipoComponent } from './components/listar-equipo/listar-equipo.component';
-import { CrearEquipoComponent } from './components/crear-equipo/crear-equipo.component';
+import { VeoTiradorComponent } from './components/veo-tirador/veo-tirador.component';
+import {  HighchartsChartModule } from 'highcharts-angular';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -30,7 +35,9 @@ import { CrearEquipoComponent } from './components/crear-equipo/crear-equipo.com
     CrearArmaComponent,
     ListarArmaComponent,
     ListarEquipoComponent,
-    CrearEquipoComponent
+    VeoTiradorComponent,
+ 
+    
   ],
   imports: [
     BrowserModule,
@@ -38,7 +45,10 @@ import { CrearEquipoComponent } from './components/crear-equipo/crear-equipo.com
     ReactiveFormsModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    HighchartsChartModule
+    
+    
 
   ],
   providers: [],

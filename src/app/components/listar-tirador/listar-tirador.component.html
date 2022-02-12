@@ -23,10 +23,10 @@
 
           <tbody *ngIf="show">
 
-            <tr *ngFor="let tirador of objTiradores">
+            <tr class = "cur" *ngFor="let tirador of objTiradores" [routerLink]="['/veo-tirador' , tirador.codArma]">
               <th scope="row">{{ tirador.codArma }}</th>
               <td>{{ tirador.codEquipo }}</td>
-              <td>{{ tirador.nombre }}</td>
+              <td >{{ tirador.nombre }}</td>
               <td>{{ tirador.rolTirador}}</td>
               <td>{{ tirador.bajas }}</td>
               <td>{{ tirador.muertes }}</td>
@@ -41,7 +41,7 @@
 
           <tbody *ngIf="showC">
 
-            <tr *ngFor="let tirador of objCuradores">
+            <tr class = "cur" *ngFor="let tirador of objCuradores" [routerLink]="['/veo-tirador' , tirador.codArma]">
               <th scope="row">{{ tirador.codArma }}</th>
               <td>{{ tirador.codEquipo }}</td>
               <td>{{ tirador.nombre }}</td>
@@ -60,7 +60,7 @@
 
           <tbody *ngIf="showB">
 
-            <tr *ngFor="let tirador of objBombarderos">
+            <tr class = "cur" *ngFor="let tirador of objBombarderos" [routerLink]="['/veo-tirador' , tirador.codArma]">
               <th scope="row">{{ tirador.codArma }}</th>
               <td>{{ tirador.codEquipo }}</td>
               <td>{{ tirador.nombre }}</td>

@@ -45,7 +45,7 @@
                 <td>{{ accesorio.precio }}</td>
                 <td>{{ accesorio.longitudCanon }}</td>
                 <td>
-                  <i [routerLink]="['/editar-accesorio' , accesorio.idAccesorio]" class="fas fa-pen-square text-primary float-end"></i>
+                  <i [routerLink]="['/editar-accesorio', accesorio.idAccesorio]" class="fas fa-pen-square text-primary float-end"></i>
                   <i (click)="eliminoAccesorio(accesorio.codArma); window()" class="fas fa-trash-alt text-danger float-end"></i>
                 </td>
               </tr>

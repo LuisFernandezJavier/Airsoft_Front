@@ -16,8 +16,5 @@ export class Bombardero extends Tirador {
     }
     get explosivoDetonado() {
         return this._explosivoDetonado
-    }
-
-
-    
+    }    
 }

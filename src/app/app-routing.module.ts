@@ -6,9 +6,11 @@ import { CrearTiradorComponent } from './components/crear-tirador/crear-tirador.
 import { ListarAccesorioComponent } from './components/listar-accesorio/listar-accesorio.component';
 import { ListarArmaComponent } from './components/listar-arma/listar-arma.component';
 import { ListarTiradorComponent } from './components/listar-tirador/listar-tirador.component';
+import { VeoTiradorComponent } from './components/veo-tirador/veo-tirador.component';
+
 
 const routes: Routes = [
-  { path: '', component: ListarTiradorComponent },
+  { path: 'listar-tirador', component: ListarTiradorComponent },
   { path: 'crear-tirador', component: CrearTiradorComponent },
   { path: 'editar-tirador/:_codArma', component: CrearTiradorComponent },
 
@@ -19,7 +21,9 @@ const routes: Routes = [
   { path: 'listar-arma', component: ListarArmaComponent },
   { path: 'crear-arma', component: CrearArmaComponent },
   { path: 'editar-arma/:_codArma', component: CrearArmaComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' },
+
+  { path: 'veo-tirador/:_codArma', component: VeoTiradorComponent },
+  { path: '**', redirectTo: 'listar-tirador', pathMatch: 'full' },
 ];
 
 @NgModule({
