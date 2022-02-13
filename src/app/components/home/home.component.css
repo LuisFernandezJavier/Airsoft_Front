@@ -8,28 +8,41 @@
 }
 .text-color{
     color: rgb(252, 204, 46, 0.8);
-    background-color: rgb(31, 29, 29);
-}
-.Center {
     
-    height:auto;
-    position: fixed;
-    top: 20%;
-    left: 40%;
 }
-.Center2 {
+.pos1 {
     
     height:auto;
     position: fixed;
     top: 30%;
-    left: 65%;
+    left: 10%;
+}
+.pos2 {
+    
+    height:auto;
+    position: fixed;
+    top: 40%;
+    left: 30%;
 }
 
-.center3{
+.pos3{
  
         height:auto;
         position: fixed;
-        top: 30%;
-        left: 15%;
+        top: 40%;
+        left: 52%;
     
 }
+
+.pos4{
+ 
+    height:auto;
+    position: fixed;
+    top: 30%;
+    left: 72%;
+
+}
+.cur{
+    cursor: pointer;
+    
+    }

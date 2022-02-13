@@ -1,16 +1,31 @@
 <div>
+
   <div class="card focus Center2" style="width: 18rem;">
-    <img class="card-img-top" src="https://thumbs.gfycat.com/FamiliarEcstaticBarnacle-size_restricted.gif"
+    <img class="card-img-top" width="200" height="270"
+     src="https://c.tenor.com/6JqZ2aCEy4UAAAAd/captain-price-captain-john-price.gif"
       alt="Card image cap">
     <div class="card-body">
-      <p class="card-text text-color">{{name}} <br> KDA = {{kda}}</p>
+      <p class="card-text text-color">{{nameT}} <br> <strong>KDA</strong> = {{kda}}</p>
     </div>
-    
+   
   </div>
 
-  <div class="Center" >
-  <div id="miGrafico01" class="card focus" style="width: 18rem;">
-    <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" class="focus"></highcharts-chart>
+  <div class="Center">
+    <div id="miGrafico01" class="card focus" style="width: 18rem;">
+      <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" class="focus"></highcharts-chart>
+    </div>
   </div>
-</div>
+
+  <div class="card focus center3 " style="width: 18rem;">
+    <img class="card-img-top" src="https://c.tenor.com/BaBnUxl0rSwAAAAd/ailisnotgay-bo1.gif"
+      alt="Card image cap">
+    <div class="card-body">
+      <p class="card-text text-color"><strong>{{nombreArma}}</strong> <br> Valor Actual = {{valorT}} € <br><strong>Categoria</strong> <br>{{categoriaArma}}
+      <br> <strong>Accesorios:</strong> <br> {{nombresAccesorios[0]}} <br> {{nombresAccesorios[1]}} <br> {{nombresAccesorios[2]}}
+      </p>
+    
+    </div>
+  
+
+
 </div>

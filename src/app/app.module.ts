@@ -20,6 +20,7 @@ import { ListarArmaComponent } from './components/listar-arma/listar-arma.compon
 import { ListarEquipoComponent } from './components/listar-equipo/listar-equipo.component';
 import { VeoTiradorComponent } from './components/veo-tirador/veo-tirador.component';
 import {  HighchartsChartModule } from 'highcharts-angular';
+import { HomeComponent } from './components/home/home.component';
 
 
 
@@ -36,6 +37,7 @@ import {  HighchartsChartModule } from 'highcharts-angular';
     ListarArmaComponent,
     ListarEquipoComponent,
     VeoTiradorComponent,
+    HomeComponent,
  
     
   ],

@@ -22,6 +22,9 @@ export class ArmaService {
     obtengoArma(codArma: string | null): Observable<any> {
         return this.http.get(this.url+'obtengoArma/' + codArma)
     }
+    ArmaxAccesorio(codArma: string | null): Observable<any> {
+        return this.http.get(this.url+'armaMontada/' + codArma)
+    }
     
     editoArma(codArma: string, armaBd: Arma): Observable<any> {
         return this.http.put(this.url + 'modificoArma/' + codArma, armaBd, { responseType: 'text' })

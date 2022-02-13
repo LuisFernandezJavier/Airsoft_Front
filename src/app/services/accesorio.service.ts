@@ -25,7 +25,11 @@ export class AccesorioService {
     obtengoAccesorio2(idAccesorio: string | null ): Observable<any> {
         return this.http.get(this.url+'obtengoAccesorio/' + idAccesorio )
     }
+    obtengoAccesorio3(codArma: string | null ): Observable<any> {
+        return this.http.get(this.url+'obtengoAccesorioCA/' + codArma )
+    }
     editoAccesorio(idAccesorio: string, accesorioBd: any): Observable<any> {
         return this.http.put(this.url + 'modificoAccesorio/' + idAccesorio, accesorioBd, { responseType: 'text' })
     }
+
 }

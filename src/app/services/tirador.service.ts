@@ -29,6 +29,12 @@ export class TiradorService {
         return this.http.put(this.url + 'modificoTirador/' + codArma, tiradorBd, { responseType: 'text' })
     }
     calculoKDA(codArma:string| null): Observable<any> {
-        return this.http.get(this.url + 'locura/' + codArma)
+        return this.http.get(this.url + 'KDA/' + codArma)
+    }
+    equipoKDA(codEquipo:string| null): Observable<any> {
+        return this.http.get(this.url + 'KDAequipo/' + codEquipo)
+    }
+    listoEquipo(codEquipo:string|null): Observable<any> {
+        return this.http.get(this.url + 'listaEquipos/' + codEquipo)
     }
 }

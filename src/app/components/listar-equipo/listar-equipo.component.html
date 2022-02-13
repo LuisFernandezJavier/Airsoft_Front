@@ -1,1 +1,41 @@
-<p>listar-equipo works!</p>
+<div>
+
+  <div class="card focus text-align-center " style="height:85px;top: 30px">
+    <p class="card-text text-color"> <br> <strong>TIRADORES DEL EQUIPO </strong>   <BR>    <strong>MEDIA KDA TOTAL DEL EQUIPO</strong> {{this.KDAequipo}}</p>
+  </div>
+
+  <div *ngFor="let tirador of tiradorEquipo " class="card focus float-start cur" style="width: 200px;top:70px"
+    [routerLink]="['/veo-tirador' , tirador.codArma]">
+
+    <div>
+      <img class="card-img-top" height="150"
+        src="https://c.tenor.com/6JqZ2aCEy4UAAAAd/captain-price-captain-john-price.gif" alt="Card image cap">
+      <div class="card-body">
+        <p class="card-text text-color"> <br> <strong>{{tirador.nombre}}</strong> <br> <strong>KDA</strong> : <br>
+          {{tirador.tmpkda}}</p>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="Center" >
+    <div id="miGrafico01" class="card focus" style="width: 18rem;">
+      <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" class="focus"></highcharts-chart>
+    </div>
+  </div>
+
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+
+
+
+
+
+
+
+
+
+</div>
