@@ -21,6 +21,13 @@ import { ListarEquipoComponent } from './components/listar-equipo/listar-equipo.
 import { VeoTiradorComponent } from './components/veo-tirador/veo-tirador.component';
 import {  HighchartsChartModule } from 'highcharts-angular';
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import {MatSliderModule} from '@angular/material/slider'
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -38,6 +45,7 @@ import { HomeComponent } from './components/home/home.component';
     ListarEquipoComponent,
     VeoTiradorComponent,
     HomeComponent,
+    LoginComponent,
  
     
   ],
@@ -48,7 +56,13 @@ import { HomeComponent } from './components/home/home.component';
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     HttpClientModule,
-    HighchartsChartModule
+    HighchartsChartModule,
+    MatSliderModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSnackBarModule
     
     
 

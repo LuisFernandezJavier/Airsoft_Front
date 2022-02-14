@@ -138,8 +138,10 @@ export class VeoTiradorComponent implements OnInit {
 
   obtengosuArma() {
     let _codArma = this.aRouter.snapshot.paramMap.get('_codArma');
+    console.log(_codArma)
     this._armaService.ArmaxAccesorio(_codArma).subscribe((valorT: any) => {
-      this.valorT = valorT.toString()
+      
+      console.log("esto",valorT)
     })
     this._armaService.obtengoArma(_codArma).subscribe((arma: any) => {
       this.nombreArma = arma[0]._nombreArma

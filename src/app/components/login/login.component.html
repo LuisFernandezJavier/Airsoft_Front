@@ -1,0 +1,29 @@
+<div class="body" style="overflow: hidden"  >
+    <div class="icon">
+
+
+        <form [formGroup]="loginForms" (ngSubmit)="testIngresar()">
+            <img src="../../../assets/img/batalla.png" style="width: 70%">
+            <h1>INICIA SESION</h1>
+            <mat-form-field appearance="fill">
+                <mat-label><strong>USUARIO</strong></mat-label>
+                <input matInput autocomplete="off" formControlName="_usuario">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label><strong>CONTRASEÑA</strong></mat-label>
+                <input matInput autocomplete="off" [type]="hide ? 'password' : 'text'" formControlName="_pass">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+            <BR>
+            <button type="submit" mat-raised-button color="primary" [disabled]="loginForms.invalid">Iniciar Sesion</button>
+        </form>
+
+
+    </div>
+    <br>
+    <br>
+</div>

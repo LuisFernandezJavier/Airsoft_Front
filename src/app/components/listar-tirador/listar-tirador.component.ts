@@ -15,7 +15,7 @@ export class ListarTiradorComponent implements OnInit {
   objTiradores: Tirador[] = []
   objCuradores: Curador[] = []
   objBombarderos: Bombardero[] = []
-  tirador: any
+ 
   show = false;
   showC = false;
   showB = false;
@@ -24,11 +24,11 @@ export class ListarTiradorComponent implements OnInit {
   ) { }
   ngOnInit(): void {
     this.obtenerTirador()
-    this.obtenerCurador()
-    this.obtenerBombardero()
+    
   }
   obtenerTirador() {
     this._tiradorService.listarTiradores().subscribe((tirador: any) => {
+      console.log("llega" , tirador[0])
 
       this.objTiradores = tirador.filter((y: any) => y._rolTirador == "Tirador").map((x: any) => new Tirador(
         x._codArma,
@@ -37,16 +37,9 @@ export class ListarTiradorComponent implements OnInit {
         x._rolTirador,
         x._bajas,
         x._muertes,
-        x._fechaInscripcion
+        x._fechaInscripcion,
       ))
-      this.tirador = this.objTiradores
-      console.log(tirador);
-    })
-  }
-
-  obtenerCurador() {
-    this._tiradorService.listarTiradores().subscribe((tirador: any) => {
-
+      console.log("this.objTiradores", this.objTiradores)
       this.objCuradores = tirador.filter((y: any) => y._rolTirador == "Curador").map((x: any) => new Curador(
         x._codArma,
         x._codEquipo,
@@ -57,12 +50,6 @@ export class ListarTiradorComponent implements OnInit {
         x._fechaInscripcion,
         x._revivido
       ))
-      this.tirador = this.objCuradores
-    })
-  }
-
-  obtenerBombardero() {
-    this._tiradorService.listarTiradores().subscribe((tirador: any) => {
 
       this.objBombarderos = tirador.filter((y: any) => y._rolTirador == "Bombardero").map((x: any) => new Bombardero(
         x._codArma,
@@ -74,10 +61,15 @@ export class ListarTiradorComponent implements OnInit {
         x._fechaInscripcion,
         x._explosivoDetonado
       ))
-      this.tirador = this.objBombarderos
+      
+      
     })
+
+    
+    
   }
 
+  
 
 
 

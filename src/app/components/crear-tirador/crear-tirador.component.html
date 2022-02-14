@@ -8,14 +8,14 @@
                 
                 <div>
                     <button class="btn btn-success float-end mt-4"
-                        (click)="showB = true ; showC = false">BOMBARDERO</button>
+                        (click)="showB = true ; showC = false ">BOMBARDERO</button>
                     <button class="btn btn-success float-end mt-4"
                         (click)="showB=false;showC = true ">CURADOR</button>
                     <button class="btn btn-success float-end mt-4"
                         (click)=" showC = false ; showB = false">TIRADOR</button>
                 </div>
                 
-                <form class="mt-3 form-control-dark" [formGroup]="tiradorForms" (ngSubmit)="agregarVehiculo()">
+                <form class="mt-3 form-control-dark" [formGroup]="tiradorForms" (ngSubmit)="agregarTirador()">
                     <div class="mb-3 ">
                         <input type="text" class="form-control form-control-lg focus text-color" formControlName="_codArma" placeholder="COD ARMA">
                         <div class="text-danger"
@@ -57,7 +57,7 @@
                             placeholder="COMPAÑEROS REVIVIDOS">
                     </div>
                     <div class="mb-3">
-                        <button class="btn btn-secondary btn-lg float-start" routerLink=" ">VOLVER</button>
+                        <button class="btn btn-secondary btn-lg float-start" routerLink="/listar-tirador">VOLVER</button>
                         <button type="submit" [disabled]="tiradorForms.invalid" class="btn btn-success btn-lg float-end">CREAR</button>
                     </div>
                 </form>

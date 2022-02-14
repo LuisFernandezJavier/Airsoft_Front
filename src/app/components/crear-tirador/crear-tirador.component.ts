@@ -13,6 +13,7 @@ export class CrearTiradorComponent implements OnInit {
   tiradorForms: FormGroup;
   _codArma: any;
   titulo = 'Crear Vehiculo';
+  
 
   showC = false;
   showB = false;
@@ -35,15 +36,17 @@ export class CrearTiradorComponent implements OnInit {
 
     })
     this._codArma = this.aRouter.snapshot.paramMap.get('_codArma');
+    
   }
 
   ngOnInit(): void {
     this.editarTirador();
   }
-  agregarVehiculo() {
+  agregarTirador() {
     let Creotirador: any
-    console.log(this.tiradorForms);
+    
     let comparo = this.tiradorForms.get('_rolTirador')?.value
+    console.log("soy",comparo)
     if (comparo == "Curador") {
       Creotirador = {
         _codArma: this.tiradorForms.get('_codArma')?.value,
@@ -66,7 +69,7 @@ export class CrearTiradorComponent implements OnInit {
         _fechaInscripcion: this.tiradorForms.get('_fechaInscripcion')?.value,
         _explosivoDetonado: this.tiradorForms.get('_explosivoDetonado')?.value,
       }
-    } else {
+    } else if (comparo == "Tirador") {
       Creotirador = {
         _codArma: this.tiradorForms.get('_codArma')?.value,
         _codEquipo: this.tiradorForms.get('_codEquipo')?.value,
@@ -77,20 +80,20 @@ export class CrearTiradorComponent implements OnInit {
         _fechaInscripcion: this.tiradorForms.get('_fechaInscripcion')?.value,
       }
     }
-
+console.log("llega del formulario",Creotirador)
 
     if (this._codArma == null) {
       //creo un tirador nuevo
       console.log(Creotirador);
       this._tiradorService.creoTirador(Creotirador).subscribe(data => {
-        this.toastr.success('El vehiculo fue creado con exito', 'CREADO');
-        this.router.navigate(['/'])
+        this.toastr.success('El tirador fue creado con exito', 'CREADO');
+        this.router.navigate(['/listar-tirador'])
       })
     } else {
       //edito un tirador
       this._tiradorService.editoTirador(this._codArma, Creotirador).subscribe(data => {
-        this.toastr.info('El vehiculo fue editado con exito', 'EDITADO');
-        this.router.navigate(['/'])
+        this.toastr.info('El tirador fue editado con exito', 'EDITADO');
+        this.router.navigate(['/listar-tirador'])
       })
     }
   }
@@ -98,7 +101,8 @@ export class CrearTiradorComponent implements OnInit {
   editarTirador() {
     if (this._codArma !== null) {
       this.titulo = "EDITAR TIRADOR";
-    }
+
+    
 
     this._tiradorService.obtengoTirador2(this._codArma).subscribe(data => {
       console.log("esto es data", data);
@@ -140,7 +144,7 @@ export class CrearTiradorComponent implements OnInit {
         })
       }
 
-    })
+    })  }
 
   }
 }

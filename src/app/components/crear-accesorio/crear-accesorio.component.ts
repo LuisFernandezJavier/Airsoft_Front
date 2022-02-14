@@ -45,10 +45,10 @@ export class CrearAccesorioComponent implements OnInit {
 
 
   agregarAccesorio() {
-    //console.log("formulario",this.accesorioForms);
+    
     let Creoaccesorio: any
 
-    //let tipo=this.accesorioForms.get('_tipoAccesorio')?.value
+    
     let tipo = this.accesorioForms.get('_tipoAccesorio')?.value;
     console.log("esto es tipo", tipo)
     if (tipo == "Cargador") {
@@ -105,7 +105,7 @@ export class CrearAccesorioComponent implements OnInit {
     let Creoaccesorio: any
     if (this._idAccesorio !== null) {
       this.titulo = "EDITAR ACCESORIO";
-    }
+    
 
     this._accesorioService.obtengoAccesorio2(this._idAccesorio).subscribe(data => {
 
@@ -144,7 +144,7 @@ export class CrearAccesorioComponent implements OnInit {
         })
       }
 
-    })
+    }) }
 
   }
 }

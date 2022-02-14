@@ -1,27 +1,18 @@
-# Client
+# FRONT END DEL PROYECTO AIRSOFT
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+Este proyecto ha sido creado por Javier Luis Fernandez 
+Alumno IES Punta Del Verde
 
-## Development server
+## Poner en marcha la aplicación 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Ejecutaemos `ng serve` 
 
-## Code scaffolding
+## Breve resumen de este proyecto
+El proyecto Airsoft se basa en un Fron End desarrollado en Angular el cual se alimenta de una Api desarollada con typescript en un entorno node.js 
+y nutrida con una base de datos MongoDB
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Con esta aplicacion podremos crear listar eliminar y editar Equipos , Tiradores , Armas y Accesorios.
 
-## Build
+Hay diversas funciones que calculan datos como el KDA (Kills+Asistants/Deaths) de un tirador , el porcentaje de de letalidad de el mismo y la media kda de un equipo , el valor actual de un Arma . Entre otras.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

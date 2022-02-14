@@ -8,12 +8,15 @@ import { ListarAccesorioComponent } from './components/listar-accesorio/listar-a
 import { ListarArmaComponent } from './components/listar-arma/listar-arma.component';
 import { ListarEquipoComponent } from './components/listar-equipo/listar-equipo.component';
 import { ListarTiradorComponent } from './components/listar-tirador/listar-tirador.component';
+import { LoginComponent } from './components/login/login.component';
 import { VeoTiradorComponent } from './components/veo-tirador/veo-tirador.component';
 
 
 const routes: Routes = [
 
-  { path: '', component: HomeComponent },
+  { path: '', component: LoginComponent },
+
+  { path: 'home', component: HomeComponent },
 
   { path: 'listar-tirador', component: ListarTiradorComponent },
   { path: 'crear-tirador', component: CrearTiradorComponent },
